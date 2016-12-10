@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+   <meta charset="utf-8" />
+   <title>BPM-WebUI-Group10</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+   <link rel="icon" href="img/kirsche.png" type="image/png">
+   <link rel="stylesheet" type="text/css" href="bootstrap-3.3.5-dist/css/bootstrap.css"/>
+
+   <style>
+	html{
+		position: relative;
+		min-height: 100%;
+	}
+    #head {
+       background-color: #19425b;
+    }
+    #head-text {
+       color: #FFF;
+    }	
+	#sog-footer {
+		background-color: #19425b;
+		color: #FFF;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 20px;
+		width: 100%;
+		overflow:hidden;
+	}
+	.sog-product-area {
+		min-height: 100%;
+	}
+
+	.container {
+		padding-bottom: 20px;
+	}
+	label {
+		padding-top: 5px;
+	}
+   </style>
+
+ </head>
+
+ <body>
+   <nav class="navbar navbar-inverse">
+      <div class="container-fluid" id="head">
+         <div class="navbar-header">
+            <a class="navbar-brand" id="head-text" href="#">
+               SoG-Shop (Group10)
+            </a>
+         </div>
+      </div>
+   </nav>
+
+   <div class="container">
+	  <div class="col-sm-2 col-md-3"></div>
+	  <div class="col-sm-8 col-md-6">
+		<h2>Hungry? Order fresh food now! :)</h2>
+	  </div>
+	  <div class="col-sm-2 col-md-3"></div>
+   </div>
+   
+   <div class="container">
+   <div class="col-sm-2 col-md-3"></div>
+   <div class="col-sm-4 col-md-3 sog-product-area">
+	<div class="well area sog-product-area">
+
+		<img src="img/sandwich.png" class="img-responsive" alt="Delicious!">
+		<label for="sog-sandwich">Fatty Sandwich</label>
+		<input type="number" class="form-control" id="sog-sandwich" name="sog-sandwich" value="0">
+		<div id="x1"></div>
+	</div>
+   </div>
+   <div class="col-sm-4 col-md-3 sog-product-area">
+	<div class="well area">
+
+		<img src="img/kirsche.png" class="img-responsive" alt="Delicious!">
+		<label for="sog-cherry">Sweet Cherry</label>
+		<input type="number" class="form-control" id="sog-cherry" name="sog-cherry" value="0">
+
+	</div>   
+   </div>
+   <div class="col-sm-2 col-md-3"></div>
+   </div>
+   
+   <div class="container" id="sog-c3">
+	  <div class="col-sm-2 col-md-3"></div>
+	  <div class="col-sm-8 col-md-6">
+		<button type="submit" id="sog-order" class="btn btn-primary btn-block btn-lg">I want my Delicious Food!</button>
+	  </div>
+	  <div class="col-sm-2 col-md-3"></div>
+   </div>
+   
+   <div class="container">
+      <div id="alertspace"></div>
+	  <div class="col-sm-2 col-md-3"></div>
+      
+	  <div class="col-sm-8 col-md-6">
+
+	  <form id="sog-form" action="index2.php" method="get">
+	  
+		  <div class="form-group" id="sog-f1">
+			<label for="cid">Customer Id</label>
+			<input type="text" class="form-control" id="cid" name="cid" value="tns:customerID">
+		  </div>
+
+		<div class="form-group" id="sog-f2">
+			<label for="pid1">Prod.-Id. 1</label>
+			<input type="text" class="form-control" id="pid1" name="pid1" value="44162d90-9315-4acc-980e-cf975c6b9397">
+		  </div>
+		  
+		  <div class="form-group" id="sog-f3">
+			<label for="pno1">Count Prod. 1</label>
+			<input type="number" class="form-control" id="pno1" name="pno1" value="1">
+			
+		  </div>
+		  
+		  <div class="form-group" id="sog-f4">
+			<label for="pid2">Prod.-Id 2</label>
+			<input type="text" class="form-control" id="pid2" name="pid2" value="3bae3778-8577-4b36-9572-a0b020931ba5">
+		  </div>
+
+		  <div class="form-group" id="sog-f5">
+			<label for="pno2">Count Prod. 2</label>
+			<input type="number" class="form-control" id="pno2" name="pno2" value="2">
+		  </div>
+
+		  <div class="form-group">
+			<label for="address">Shipping Address</label>
+			<input type="text" class="form-control" id="address" name="address" value="Max Mustermann, Musterstr. 1, 12345 Musterstadt">
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="bn">Bank Name</label>
+			<input type="text" class="form-control" id="bn" name="bn" value="Muster Bank">
+			<label for="bic">BIC</label>
+			<input type="text" class="form-control" id="bic" name="bic" value="SOLADEST600">
+			<label for="iban">IBAN</label>
+			<input type="text" class="form-control" id="iban" name="iban" value="DE02600501017495530102">
+			<label for="ah">Account Holder</label>
+			<input type="text" class="form-control" id="ah" name="ah" value="Max Mustermann">
+		  </div>
+		  
+		  <div class="form-group" id="sog-f8">
+			<label for="sd">Shipping Date</label>
+			<input type="text" class="form-control" id="sd" name="sd" value="2016-12-24">
+		  </div>
+		  
+		  <div class="form-group"/>
+		  
+		  <button type="submit" class="btn btn-primary btn-block btn-lg" id="sog-buy">Order and Pay Delicious Food Now!</button>
+
+		</form>               
+       </div> 
+	
+	<div class="col-sm-2 col-md-3"></div>	   
+    </div> 
+
+    <div class="container-fluid" id="sog-footer">
+       (C) Manh Phi Nguyen, Johannes Wanner, Jens Thenent, 2016
+    </div>
+	
+	<script>
+		$("#sog-f1").css("display", "none");	
+		$("#sog-f2").css("display", "none");
+		$("#sog-f3").css("display", "none");
+		$("#sog-f4").css("display", "none");
+		$("#sog-f5").css("display", "none");
+		$("#sog-f8").css("display", "none");
+		
+		$("#sog-form").css("display", "none");
+		$("#sog-order").click(
+						function(){
+							$("#sog-form").css("display", "inline");
+							$("#sog-c3").css("display", "none");
+							});
+		
+		$("#sog-sandwich").change(function(){
+			$("#pno1").val($("#sog-sandwich").val());});
+		$("#sog-cherry").change(function(){
+			$("#pno2").val($("#sog-cherry").val());});
+	</script>
+
+ </body>
+</html>
