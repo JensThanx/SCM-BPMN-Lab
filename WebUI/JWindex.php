@@ -79,9 +79,10 @@ ini_set("soap.wsdl_cache_enabled", "0");
 	//"479e8b20-3697-4609-9ed6-bde2a4b22e41",
 	try
 	{
-  	$webSv = new SoapClient("http://46.101.159.46:32845/ode/processes/ConductOrder?wsdl");
+  	$webSv = new SoapClient("http://46.101.159.46:33225/ode/processes/ConductOrder?wsdl");
   	$webSv2 = new SoapClient("C:\eclipse\eclipse_win64\workspace\sync\\rev0\FlowSOG.wsdl");
   	
+  	echo("</br> <b>Getfunctions:</b> </br>" );
   	$list = $webSv->__getFunctions();
   	var_dump($list);
   	echo("</br></br>");
@@ -117,10 +118,7 @@ ini_set("soap.wsdl_cache_enabled", "0");
 	 
 	 
 	 $xmlr = new SimpleXMLElement('<tns:ConductOrderRequest xmlns:tns="http://de.ustutt.simtech" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  								   </tns:ConductOrderRequest>');
-  //	 $xmlr->addAttribute("tns", "http://de.ustutt.simtech");
- // 	 $xmlr->addAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-  	  
+  								   </tns:ConductOrderRequest>'); 
 	 
 	 $xmlInput = $xmlr->addChild('tns:input');
   	 $xmlInput->addChild('tns:customerID', $_GET["cid"]);
@@ -150,7 +148,7 @@ ini_set("soap.wsdl_cache_enabled", "0");
   	 $params = new stdClass();
   	 $params->xml = $xmlr->asXML();
   	 
-  	 $ConductOrderparam2 = array(
+  	 $ConductOrderparam = array(
   			"input" => array(
 	  			"customerID" => $_GET["cid"],
   					"products" => array(
@@ -168,10 +166,10 @@ ini_set("soap.wsdl_cache_enabled", "0");
 	  					"accountNumber" => $_GET["iban"],
 	  					"accountHolderName" => $_GET["ah"]
 	  					),  	 
-	  			"shippingDate" => $_GET["sd"]
+	  			"shipingDate" => $_GET["sd"]
   			) 
   	);
-	$ConductOrderparam = array(
+	$ConductOrderparam2 = array(
   			"input" => array(
 			  	"customerID" => $_GET["cid"], 
   				"products" => array(
@@ -193,15 +191,15 @@ ini_set("soap.wsdl_cache_enabled", "0");
 	  //var_dump($webSv->conductOrder($testxml->xml) );
 	  
 	  //echo("</br> <b>Web Service Call2:</b> </br>" );
-	  //var_dump($webSv->conductOrder($testxml->xml) );
-	echo("</br> <b>Getfunction:</b> </br>" );
-	var_dump($webSv->__getFunctions());
+	  //var_dump($webSv->conductOrder($$ConductOrderparam2) );
+	
 	  
 	  echo("</br> <b>Web Service Call3:</b> </br>" );
+	  $webSv->ConductOrder("tescgt");
+	  
 	  $options = array (uri => "http://de.ustutt.simtech");
-	  $webSv->conductorder($ConductOrderparam);
 	  //var_dump($webSv->__soapCall("ConductOrder", $ConductOrderparam, $options) );
-	  var_dump($webSv->__soapCall("conductOrder",array( $xmlr->asXML()), $options) );
+	  //var_dump($webSv->__soapCall("conductOrder",array( $ConductOrderparam2), $options) );
 	   
 	  }
 	  catch (SoapFault $e)
@@ -215,7 +213,17 @@ ini_set("soap.wsdl_cache_enabled", "0");
 
 	  	
 	  ?>
-            
+      <?php echo $_GET["cid"]; ?><br>
+	  <?php echo $_GET["pid1"]; ?><br>
+	  <?php echo $_GET["pno1"]; ?><br>
+	  <?php echo $_GET["pid2"]; ?><br>
+	  <?php echo $_GET["pno2"]; ?><br>
+	  <?php echo $_GET["address"]; ?><br>
+	  <?php echo $_GET["bn"]; ?><br>
+	  <?php echo $_GET["bic"]; ?><br>
+	  <?php echo $_GET["iban"]; ?><br>
+	  <?php echo $_GET["ah"]; ?><br>
+	  <?php echo $_GET["sd"]; ?><br>
 
        </div> 
 	
