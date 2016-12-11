@@ -55,7 +55,7 @@
    <nav class="navbar navbar-inverse">
       <div class="container-fluid" id="head">
          <div class="navbar-header">
-            <a class="navbar-brand" id="head-text" href="#">
+            <a class="navbar-brand" id="head-text" href="index.html">
                SoG-Shop (Group10)
             </a>
          </div>
@@ -92,15 +92,15 @@
 	  }
 	  catch (Exception $e)
 	  {
-  			echo 'SOAP Exception: ' . $e->getMessage();	  
+  			echo 'Exception: ' . $e->getMessage();	  
 	  }	  
 
 	  if($soapReply->result != NULL){
-		  echo "<div class=\"alert alert-success\">";
+		  echo "<div class=\"alert alert-success\"><font size=\"5\">";
 		  echo $soapReply->result;
 		  echo "<br>The delivery will be made to: ". $_GET["address"];
 		  echo "<br>Thank you for shopping at SoG-Shop. Enjoy your delicious food!";
-		  echo "</div>";
+		  echo "</font></div>";
 	  }
 	  else{
 		  echo "<div class=\"alert alert-danger\">";
